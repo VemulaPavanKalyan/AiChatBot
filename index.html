@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Groq AI Chatbot</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@500;700&family=Space+Grotesk:wght@500;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<main class="chat-container">
+    <header class="header">
+        <div class="brand">
+            <div class="logo">G</div>
+            <div>
+                <h2>Groq AI Assistant</h2>
+                <div class="status">Ready to chat</div>
+            </div>
+        </div>
+        <button class="btn btn-clear" onclick="clearChat()">Clear</button>
+    </header>
+
+    <section class="settings">
+        <label class="field">
+            <span>Model</span>
+            <select id="model" aria-label="Choose model">
+                <option value="openai/gpt-oss-20b">GPT-OSS 20B (fast)</option>
+                <option value="openai/gpt-oss-120b">GPT-OSS 120B (smart)</option>
+                <option value="llama-3.3-70b-versatile">Llama 3.3 70B</option>
+                <option value="llama-3.1-8b-instant">Llama 3.1 8B (instant)</option>
+            </select>
+        </label>
+        <label class="field">
+            <span>API key</span>
+            <input type="password" id="apiKey" placeholder="gsk_..." autocomplete="off">
+        </label>
+    </section>
+
+    <div class="chat-box" id="chatBox" aria-live="polite"></div>
+
+    <div class="typing" id="typing"><i></i><i></i><i></i><b>AI is thinking</b></div>
+
+    <div class="input-area">
+        <textarea id="userInput" rows="1" placeholder="Type your message..." onkeydown="handleEnter(event)"></textarea>
+        <button class="btn btn-send" id="sendBtn" onclick="sendMessage()">Send &#10148;</button>
+    </div>
+</main>
+
+<script src="script.js" defer></script>
+</body>
+</html>
